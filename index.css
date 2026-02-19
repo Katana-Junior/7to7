@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.section1 {
+  background-image: url(images/logo2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 800px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: green;
+  height: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.buttons {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bolder;
+  font-style: oblique;
+  font-size: 15px;
+}
