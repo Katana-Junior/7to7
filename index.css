@@ -31,3 +31,11 @@
   font-style: oblique;
   font-size: 15px;
 }
+.image-product {
+  height: 400px;
+  width: 350px;
+}
+.democlothes {
+  display: grid;
+  grid-template: row;
+}
