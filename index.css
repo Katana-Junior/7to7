@@ -54,9 +54,9 @@
   text-align: center;
 }
 .button-cart {
-  background-color: hotpink;
+  background-color: #e7e40c;
   color: white;
-  border: solid 1px black;
+  border: none;
   height: 50px;
   width: 100px;
   border-radius: 25px;
@@ -76,4 +76,46 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
+}
+
+/* Cart Tab Styles */
+
+.cart-tab {
+  width: 400px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border: solid 1px black;
+  padding: 20px;
+  z-index: 200;
+  grid-template-columns: 70px 1fr 70px;
+}
+.cart-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.close-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  height: 80px;
+  width: 180px;
+  cursor: pointer;
+}
+.checkout-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  height: 80px;
+  width: 180px;
+  cursor: pointer;
+}
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  height: auto;
 }
