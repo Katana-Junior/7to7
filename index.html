@@ -15,8 +15,11 @@
         <button class="buttons">MEN</button>
         <button class="buttons">COLLECTION</button>
         <button class="buttons">ABOUT US</button>
-        <img class="search-icon" src="icons/search-icon.png" alt="Search Icon">
-        <img class="cart-icon" src="icons/cart-icon.png" alt="Cart Icon">
+        <div class="search-container">
+          <input class="search-bar" type="text" placeholder="Search products">
+          <img class="search-icon icon-search" src="icons/search-icon.png" alt="Search Icon">
+        </div>
+        <img class="cart-icon icon-cart" src="icons/cart-icon.png" alt="Cart Icon">
       </div>
     <section class="section1">
      
@@ -24,7 +27,7 @@
         <div class="products-container">
    <p>
     <img class="image-product" src="images/adults-plain-cotton-tshirt-2-pack-teal.jpg" alt="Plain Cotton T-Shirt">
-    <p class="product-name">Plain Cotton T-Shirt 2-Pack</p>
+    <p class="product-name">Plain Cotton T-Shirt </p>
     <p class="product-price">Price: Ksh 2,500</p>
     <p>
     <button class="button-cart">ADD TO CART</button>
@@ -33,7 +36,7 @@
    <div class="products-container">
    <p>
     <img class="image-product" src="images/men-golf-polo-t-shirt-blue.jpg" alt="Golf Polo T-Shirt">
-    <p class="product-name">Men's Golf Polo T-Shirt</p>
+    <p class="product-name"> Golf Polo T-Shirt</p>
     <p class="product-price">Price: Ksh 2,200</p>
     <p>
     <button class="button-cart">ADD TO CART</button>
@@ -64,7 +67,7 @@
     <div class="products-container">
     <p>
       <img class="image-product" src="images/women-french-terry-fleece-jogger-camo.jpg" alt="Fleece Jogger">
-      <p class="product-name">Women's Fleece Jogger - Camo</p>
+      <p class="product-name">Fleece Jogger </p>
       <p class="product-price">Price: Ksh 2,800</p>
       <p>
       <button class="button-cart">ADD TO CART</button>
@@ -75,7 +78,7 @@
     <div class="products-container">
     <p>
       <img class="image-product" src="images/women-stretch-popover-hoodie-black.jpg" alt="Popover Hoodie">
-      <p class="product-name">Women's Stretch Popover Hoodie</p>
+      <p class="product-name">Popover Hoodie</p>
       <p class="product-price">Price: Ksh 3,200</p>
       <p>
       <button class="button-cart">ADD TO CART</button>
@@ -90,7 +93,7 @@
         <div class="products-container">
           <p>
             <img class="image-product" src="images/men-cozy-fleece-zip-up-hoodie-red.jpg" alt="Fleece Zip-Up Hoodie">
-            <p class="product-name">Men's Cozy Fleece Zip-Up Hoodie</p>
+            <p class="product-name">Fleece Zip-Up Hoodie</p>
             <p class="product-price">Price: Ksh 3,000</p>
             <p>
             <button class="button-cart">ADD TO CART</button>
@@ -147,15 +150,9 @@
           <span>1</span>
           <span class="plus">></span>
         </div>
-        </div>
-          
-
-    
-        <!-- Cart items will be dynamically added here -->
-      </div>  
       <div class="cart-buttons">
-        <button class="close-btn">CLOSE</button>
-      <button class="checkout-btn">CHECKOUT</button>
+        <button class="close-btn close">CLOSE</button>
+      <button class="checkout-btn checkout">CHECKOUT</button>
     </div>
     </div>
   </body>

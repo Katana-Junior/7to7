@@ -1,0 +1,18 @@
+{
+  "products":[
+   "id": 1,
+   "name": "Plain Cotton T-Shirt",
+   "price": 2500,
+   "image": "images/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+
+   "id": 2,
+   "name": "Golf Polo T-Shirt",
+   "price": 2200,
+   "image": "images/men-golf-polo-t-shirt-blue.jpg"
+
+"id": 3,
+   "name": ",
+   "price": 3000,  
+
+  ]
+}

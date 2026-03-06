@@ -3,18 +3,6 @@
   padding: 0;
 }
 
-.section1 {
-  background-image: url(images/logo2.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 1000px;
-}
-.logo {
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-}
 .header {
   display: flex;
   justify-content: space-between;
@@ -26,6 +14,34 @@
   top: 0;
   z-index: 100;
 }
+.logo {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+.cart-icon {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.search-icon {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.search-bar {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0;
+  width: 150px;
+}
+
 .buttons {
   background-color: green;
   color: white;
@@ -35,6 +51,16 @@
   font-weight: bolder;
   font-style: oblique;
   font-size: 15px;
+}
+
+/*sections*/
+
+.section1 {
+  background-image: url(images/logo2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1000px;
 }
 .image-product {
   height: 300px;
@@ -122,6 +148,11 @@
   z-index: 200;
   overflow-y: auto;
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+}
+body.showCart .cart-tab {
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
 }
 
 .cart-head {
@@ -252,4 +283,128 @@
 .plus:hover {
   background-color: #d4da0c;
   transform: scale(1.1);
+}
+
+/* Responsive Design - Tablet (600px to 900px) */
+@media (max-width: 900px) {
+  .democlothes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .image-product {
+    height: 250px;
+    width: 200px;
+  }
+
+  .buttons {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .section1,
+  .section2 {
+    height: 700px;
+  }
+
+  .cart-tab {
+    width: 350px;
+  }
+
+  .product-name {
+    font-size: 14px;
+  }
+
+  .search-bar {
+    width: 120px;
+  }
+}
+
+/* Responsive Design - Mobile (below 600px) */
+@media (max-width: 600px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 10px;
+    height: auto;
+  }
+
+  .logo {
+    height: 40px;
+    width: 40px;
+  }
+
+  .buttons {
+    padding: 8px 12px;
+    font-size: 11px;
+    margin: 5px;
+  }
+
+  .democlothes {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .image-product {
+    height: 200px;
+    width: 180px;
+  }
+
+  .products-container {
+    padding: 15px;
+  }
+
+  .product-name {
+    font-size: 13px;
+    margin: 8px 0 3px 0;
+  }
+
+  .product-price {
+    font-size: 12px;
+  }
+
+  .button-cart,
+  .button-buy {
+    height: 40px;
+    width: 75px;
+    padding: 8px;
+    margin: 5px;
+    font-size: 11px;
+  }
+
+  .section1,
+  .section2 {
+    height: 500px;
+  }
+
+  .cart-tab {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .cart-head {
+    font-size: 20px;
+  }
+
+  .cart-items-image {
+    height: 50px;
+    width: 50px;
+  }
+
+  .quantity {
+    gap: 8px;
+  }
+
+  .minus,
+  .plus {
+    height: 25px;
+    width: 25px;
+    font-size: 14px;
+  }
+
+  .search-bar {
+    width: 100px;
+    padding: 4px 8px;
+  }
 }
