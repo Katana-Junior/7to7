@@ -5,13 +5,6 @@
 #content {
   font-weight: bold;
   font-style: oblique;
-  background-image: url(images/background1.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 20px;
-  color: violet;
-  font-size: large;
 }
 .header {
   display: flex;
@@ -136,12 +129,6 @@
   background-repeat: no-repeat;
   height: 1000px;
   margin-top: 100px;
-}
-.democlothes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
 }
 
 /* Cart Tab Styles */

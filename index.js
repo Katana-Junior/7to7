@@ -4,7 +4,7 @@ let iconCart = document.querySelector(".icon-cart");
 
 let closeCart = document.querySelector(".close");
 
-let productListHTML = document.querySelector(".products-list");
+let productListHTML = document.querySelector(".cart-list");
 
 let productList = [];
 let cart = [];
@@ -20,7 +20,7 @@ const renderProducts = () => {
   fetch("products.json")
     .then((response) => response.json())
     .then((data) => {
-      productList = data.products;
+      productList = data.product;
       console.log(productList);
     })
     .catch((error) => console.error("Error fetching products:", error));
@@ -37,3 +37,23 @@ aboutBtn.addEventListener("click", () => {
     all while ensuring excellent customer service. Thank you for choosing us for your shopping experience!</p>
 `;
 });
+const addTocart = () => {
+  productListHTML.innerHTML = "";
+  cart.forEach((product) => {
+    productListHTML.innerHTML += `
+    <div class="cart-item">
+      <img src="${product.image}" alt="${product.name}" class="cart-item-image">
+      <div class="cart-item-details">
+        <p class="cart-item-name">${product.name}</p>
+        <p class="cart-item-price">$${product.price}</p>
+      </div>
+    </div>
+    `;
+  });
+};
+productListHTML.addEventListener("click", (event) => {
+  if (event.target.classList.contains("button-cart")) {
+    alert("Added to cart!");
+  }
+});
+addTocart();
