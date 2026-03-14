@@ -4,7 +4,7 @@ let iconCart = document.querySelector(".icon-cart");
 
 let closeCart = document.querySelector(".close");
 
-let productListHTML = document.querySelector(".cart-list");
+let productListHTML = document.querySelector(".cart-items");
 
 let productList = [];
 let cart = [];
@@ -39,8 +39,11 @@ aboutBtn.addEventListener("click", () => {
 });
 const addTocart = () => {
   productListHTML.innerHTML = "";
-  cart.forEach((product) => {
-    productListHTML.innerHTML += `
+  if (cart.length > 0) {
+    cart.forEach((product) => {
+      let cartItemHTML = document.createElement("div");
+      cartItemHTML.classList.add("products-container");
+      cartItemHTML.innerHTML = `
     <div class="cart-item">
       <img src="${product.image}" alt="${product.name}" class="cart-item-image">
       <div class="cart-item-details">
@@ -49,11 +52,13 @@ const addTocart = () => {
       </div>
     </div>
     `;
+      productListHTML.appendChild(cartItemHTML);
+    });
+  }
+  productListHTML.addEventListener("click", (event) => {
+    let buttonclicked = event.target;
+    if (buttonclicked.classList.contains("button-cart")) {
+      alert("Added to cart!");
+    }
   });
 };
-productListHTML.addEventListener("click", (event) => {
-  if (event.target.classList.contains("button-cart")) {
-    alert("Added to cart!");
-  }
-});
-addTocart();
