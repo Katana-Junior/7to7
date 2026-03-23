@@ -56,9 +56,43 @@ const addTocart = () => {
     });
   }
   productListHTML.addEventListener("click", (event) => {
-    let buttonclicked = event.target;
-    if (buttonclicked.classList.contains("button-cart")) {
+    let buttonClicked = event.target;
+    if (buttonClicked.classList.contains("button-cart")) {
       alert("Added to cart!");
     }
   });
+};
+//Search functionality
+const searchBar = document.querySelector(".search-bar");
+const searchButton = document.querySelector(".search-button");
+const performSearch = () => {
+  const query = searchBar.value.trim().toLowerCase();
+  const searchResults = productList.filter((product) =>
+    product.name.toLowerCase().includes(query),
+  );
+  displaySearchResults(searchResults);
+};
+searchButton.addEventListener("click", performSearch);
+searchBar.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    performSearch();
+  }
+});
+const displaySearchResults = (results) => {
+  const searchResultsContainer = document.querySelector(".search-results");
+  searchResultsContainer.innerHTML = "";
+  if (results.length > 0) {
+    results.forEach((product) => {
+      const productHTML = document.createElement("div");
+      productHTML.classList.add("search-result-item");
+      productHTML.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="search-result-image">
+        <p class="search-result-name">${product.name}</p>
+        <p class="search-result-price">$${product.price}</p>
+      `;
+      searchResultsContainer.appendChild(productHTML);
+    });
+  } else {
+    searchResultsContainer.innerHTML = `<p>No products found.</p>`;
+  }
 };
