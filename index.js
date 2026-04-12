@@ -79,7 +79,10 @@ closeCart.addEventListener("click", () => {
 });
 
 const renderProducts = () => {
-  productList = products.map((product) => {
+  const section1 = document.getElementById("section1-products");
+  const section2 = document.getElementById("section2-products");
+
+  products.forEach((product, index) => {
     let productHTML = document.createElement("div");
     productHTML.classList.add("products-container");
     productHTML.innerHTML = `
@@ -88,10 +91,12 @@ const renderProducts = () => {
       <p class="product-price">$${product.price}</p>
       <button class="button-cart" data-id="${product.id}">Add to Cart</button>
     `;
-    return productHTML;
-  });
-  productList.forEach((productHTML) => {
-    document.getElementById("content").appendChild(productHTML);
+
+    if (index < 6) {
+      section1.appendChild(productHTML);
+    } else {
+      section2.appendChild(productHTML);
+    }
   });
 };
 
@@ -106,37 +111,59 @@ aboutBtn.addEventListener("click", () => {
     all while ensuring excellent customer service. Thank you for choosing us for your shopping experience!</p>
 `;
 });
-const addTocart = () => {
+// Add to Cart with event delegation
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("button-cart")) {
+    const productId = event.target.dataset.id;
+    const product = products.find((p) => p.id == productId);
+    if (product) {
+      const existingItem = cart.find((item) => item.id === product.id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+      updateCart();
+      alert(`${product.name} added to cart!`);
+    }
+  }
+});
+
+const updateCart = () => {
   productListHTML.innerHTML = "";
   if (cart.length > 0) {
     cart.forEach((product) => {
       let cartItemHTML = document.createElement("div");
-      cartItemHTML.classList.add("products-container");
+      cartItemHTML.classList.add("cart-item");
       cartItemHTML.innerHTML = `
-    <div class="cart-item">
-      <img src="${product.image}" alt="${product.name}" class="cart-item-image">
-      <div class="cart-item-details">
-        <p class="cart-item-name">${product.name}</p>
-        <p class="cart-item-price">$${product.price}</p>
-      </div>
-    </div>
-    `;
+        <img src="${product.image}" alt="${product.name}" class="cart-item-image">
+        <div class="cart-item-details">
+          <p class="cart-item-name">${product.name}</p>
+          <p class="cart-item-price">$${product.price}</p>
+          <p class="cart-item-quantity">Qty: ${product.quantity}</p>
+        </div>
+        <button class="remove-btn" data-id="${product.id}">Remove</button>
+      `;
       productListHTML.appendChild(cartItemHTML);
     });
+  } else {
+    productListHTML.innerHTML = "<p>Your cart is empty</p>";
   }
-  productListHTML.addEventListener("click", (event) => {
-    let buttonClicked = event.target;
-    if (buttonClicked.classList.contains("button-cart")) {
-      alert("Added to cart!");
-    }
-  });
 };
+
+// Remove from cart
+productListHTML.addEventListener("click", (event) => {
+  if (event.target.classList.contains("remove-btn")) {
+    const productId = event.target.dataset.id;
+    cart = cart.filter((item) => item.id != productId);
+    updateCart();
+  }
+});
+
 //Search functionality
-const searchBar = document.querySelector(".search-bar");
-const searchButton = document.querySelector(".search-button");
 const performSearch = () => {
   const query = searchBar.value.trim().toLowerCase();
-  const searchResults = productList.filter((product) =>
+  const searchResults = products.filter((product) =>
     product.name.toLowerCase().includes(query),
   );
   displaySearchResults(searchResults);
@@ -158,6 +185,7 @@ const displaySearchResults = (results) => {
         <img src="${product.image}" alt="${product.name}" class="search-result-image">
         <p class="search-result-name">${product.name}</p>
         <p class="search-result-price">$${product.price}</p>
+        <button class="button-cart" data-id="${product.id}">Add to Cart</button>
       `;
       searchResultsContainer.appendChild(productHTML);
     });
