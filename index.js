@@ -124,7 +124,7 @@ document.addEventListener("click", (event) => {
         cart.push({ ...product, quantity: 1 });
       }
       updateCart();
-      alert(`${product.name} added to cart!`);
+    
     }
   }
 });
