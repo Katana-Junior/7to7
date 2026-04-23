@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 .body {
   font-family: Arial, sans-serif;
@@ -362,8 +363,8 @@ body.showCart .cart-tab {
 /* Responsive Design - Tablet (600px to 900px) */
 @media (max-width: 900px) {
   .democlothes {
-    gap: 15px;
-    padding: 15px;
+    gap: 12px;
+    padding: 12px;
   }
 
   .image-product {
@@ -378,7 +379,7 @@ body.showCart .cart-tab {
 
   .section1,
   .section2 {
-    height: 700px;
+    height: auto;
   }
 
   .cart-tab {
@@ -414,8 +415,8 @@ body.showCart .cart-tab {
   }
 
   .democlothes {
-    gap: 10px;
-    padding: 10px;
+    gap: 8px;
+    padding: 8px;
   }
 
   .image-product {
@@ -445,7 +446,7 @@ body.showCart .cart-tab {
   }
 
   .products-container {
-    padding: 15px;
+    padding: 10px;
   }
 
   .product-name {
@@ -468,7 +469,7 @@ body.showCart .cart-tab {
 
   .section1,
   .section2 {
-    height: 500px;
+    height: auto;
   }
 
   .cart-tab {
