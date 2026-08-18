@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+@media screen and (max-width: 600px) {
+  body {
+    font-family: Arial, sans-serif;
+  }
+}
 .body {
   font-family: Arial, sans-serif;
 }
