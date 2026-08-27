@@ -3,13 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-@media screen and (max-width: 600px) {
-  body {
-    font-family: Arial, sans-serif;
-  }
-}
-.body {
+body {
   font-family: Arial, sans-serif;
+  min-width: 0;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar {
   width: 14px;
@@ -27,13 +24,36 @@
   font-weight: bold;
   font-style: oblique;
 }
+.simple-page {
+  width: min(800px, calc(100% - 32px));
+  margin: 48px auto;
+  padding: 32px;
+  background-color: wheat;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.simple-page h1 {
+  margin-bottom: 16px;
+}
+
+.simple-page p {
+  margin-bottom: 24px;
+}
+
+.simple-page-link {
+  display: inline-block;
+  text-decoration: none;
+}
 .header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  gap: 12px;
+  padding: 10px 20px;
   background-color: green;
-  height: 50px;
+  min-height: 70px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -105,6 +125,29 @@
   width: 200px;
   max-height: 300px;
 }
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  padding: 12px;
+}
+
+.search-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 12px;
+  background-color: wheat;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.search-result-image {
+  width: min(100%, 200px);
+  height: 250px;
+  object-fit: cover;
+}
 .no-products {
   text-align: center;
   font-size: 18px;
@@ -147,7 +190,8 @@
 
 .product-image {
   height: 250px;
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   cursor: pointer;
   border-radius: 6px;
   object-fit: cover;
@@ -214,6 +258,7 @@
   margin-top: 0;
 }
 .section2-text {
+  display: block;
   color: white;
   font-size: 24px;
   text-align: center;
@@ -225,7 +270,7 @@
 /* Cart Tab Styles */
 
 .cart-tab {
-  width: 400px;
+  width: min(400px, 100vw);
   position: fixed;
   top: 0;
   right: 0;
@@ -393,7 +438,6 @@ body.showCart .cart-tab {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 8flex;
   flex-direction: row;
   gap: 30px;
   margin-top: 20px;
@@ -461,19 +505,34 @@ body.showCart .cart-tab {
   .search-bar {
     width: 120px;
   }
+
+  .navigations-header {
+    gap: 8px;
+  }
 }
 
 /* Responsive Design - Mobile (below 600px) */
 @media (max-width: 600px) {
   .header {
-    flex-wrap: wrap;
     padding: 10px;
-    height: auto;
+    justify-content: center;
   }
 
   .logo {
     height: 40px;
     width: 40px;
+  }
+
+  .navigations-header {
+    flex: 1 1 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 6px 8px;
   }
 
   .buttons {
@@ -483,6 +542,7 @@ body.showCart .cart-tab {
   }
 
   .democlothes {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 8px;
     padding: 8px;
   }
@@ -493,7 +553,7 @@ body.showCart .cart-tab {
 
   /* container where page sections are swapped */
   #content {
-    padding: 20px;
+    padding: 0;
   }
 
   .about-section {
@@ -506,11 +566,6 @@ body.showCart .cart-tab {
   .about-section h2 {
     margin-bottom: 15px;
     color: #27ae60;
-  }
-
-  .image-product {
-    height: 200px;
-    width: 180px;
   }
 
   .products-container {

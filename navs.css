@@ -43,7 +43,7 @@
   flex-direction: column;
 }
 
-[contacts-header] {
+.contacts-header {
   color: #333;
   font-size: 28px;
   font-weight: bold;
