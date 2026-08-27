@@ -58,6 +58,20 @@ body {
   top: 0;
   z-index: 100;
 }
+.menu-button {
+  display: none;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  cursor: pointer;
+}
+.menu-button span {
+  display: block;
+  height: 2px;
+  margin: 4px 0;
+  background-color: #333;
+}
 .logo {
   height: 50px;
   width: 50px;
@@ -514,6 +528,7 @@ body.showCart .cart-tab {
 /* Responsive Design - Mobile (below 600px) */
 @media (max-width: 600px) {
   .header {
+    position: sticky;
     padding: 6px;
     justify-content: flex-start;
     gap: 2px;
@@ -526,12 +541,32 @@ body.showCart .cart-tab {
     flex-shrink: 0;
   }
 
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+  }
+
   .navigations-header {
-    flex: 1 1 auto;
-    min-width: 0;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 6px;
+    background-color: green;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  .menu-toggle:checked ~ .navigations-header {
+    display: flex;
   }
 
   .nav-link {
